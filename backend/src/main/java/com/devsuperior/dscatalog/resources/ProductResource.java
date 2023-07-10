@@ -2,7 +2,6 @@ package com.devsuperior.dscatalog.resources;
 
 
 import com.devsuperior.dscatalog.dto.ProductDTO;
-import com.devsuperior.dscatalog.services.CategoryService;
 import com.devsuperior.dscatalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,19 +39,19 @@ public class ProductResource {
     }
     @PostMapping
     public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto){
-       // dto = service.insert(dto);
+        dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
                 .buildAndExpand(dto).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
     @PutMapping("{id}")
     public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto){
-       // dto = service.update(id,dto);
+        dto = service.update(id,dto);
         return  ResponseEntity.ok().body(dto);
     }
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
-        //service.delete(id);
+        service.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
