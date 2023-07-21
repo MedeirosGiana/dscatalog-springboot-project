@@ -42,4 +42,11 @@ public class ProductRepositoryTests {
 
         Assertions.assertFalse(result.isPresent());
     }
+
+    @Test
+    public void findByIdShouldReturnOptionalProductWhenIdExists(){
+        Optional<Product> result = repository.findById(existingId);
+
+        Assertions.assertTrue(result.isPresent());
+    }
 }
