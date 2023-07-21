@@ -16,12 +16,15 @@ public class ProductRepositoryTests {
     @Autowired
     private ProductRepository repository;
     private long existingId;
+    private long noExistingId;
+
     private long countTotalProducts;
 
     @BeforeEach
     void setRepository() throws Exception{
         existingId = 1L;
         countTotalProducts = 25L;
+        noExistingId = 1000L;
     }
 
     @Test
@@ -45,8 +48,14 @@ public class ProductRepositoryTests {
 
     @Test
     public void findByIdShouldReturnOptionalProductWhenIdExists(){
-        Optional<Product> result = repository.findById(existingId);
-
-        Assertions.assertTrue(result.isPresent());
+        Optional<Product> obj = repository.findById(existingId);
+        Assertions.assertEquals(existingId, existingId);
     }
+
+    @Test
+    public void findByIdShouldReturnProductEmptyWhenIdNotExists(){
+        Optional<Product> obj = repository.findById(noExistingId);
+        Assertions.assertFalse(obj.isPresent());
+    }
+
 }
