@@ -49,7 +49,8 @@ public class ProductRepositoryTests {
     @Test
     public void findByIdShouldReturnOptionalProductWhenIdExists(){
         Optional<Product> obj = repository.findById(existingId);
-        Assertions.assertEquals(existingId, existingId);
+        Assertions.assertTrue(obj.isPresent());
+        Assertions.assertEquals(existingId, obj.get().getId());
     }
 
     @Test
