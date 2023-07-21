@@ -15,6 +15,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -55,18 +56,24 @@ public class ProductService {
             copyDtoToEntity(dto, entity);
             entity = repository.save(entity);
             return new ProductDTO(entity);
-        }catch (EntityNotFoundException e){
-            throw  new ResourceNotFoundException("Id not found" + id);
+        }
+        catch (EntityNotFoundException e){
+            throw  new ResourceNotFoundException("Id ão encontrado" + id);
         }
     }
-
+    @Transactional(propagation = Propagation.SUPPORTS)
     public  void delete(Long id){
+        if (!repository.existsById(id)) {
+            throw  new ResourceNotFoundException("Recurso não encontrado");
+        }
         try {
             repository.deleteById(id);
-        }catch (EmptyResultDataAccessException e){
-            throw  new ResourceNotFoundException("id not found" + id);
-        }catch (DataIntegrityViolationException e) {
-            throw new DatabaseException("Integrity violation");
+        }
+        catch (EmptyResultDataAccessException e){
+            throw  new ResourceNotFoundException("id não encontrado" + id);
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Falha de integridade referencial");
         }
     }
 
