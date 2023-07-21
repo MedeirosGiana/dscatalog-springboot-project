@@ -1,6 +1,7 @@
-package com.devsuperior.dscatalog.entities;
+package com.devsuperior.dscatalog.entities;;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
