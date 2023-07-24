@@ -42,12 +42,19 @@ public class ProductServiceTests{
         //product = Factory.createProduct();
         //page = new PageImpl<>(List.of(product));
 
+        Mockito.doNothing().when(repository).deleteById(existingId);
+        Mockito.doThrow(DataIntegrityViolationException.class).when(repository).deleteById(dependentId);
 
         Mockito.when(repository.existsById(existingId)).thenReturn(true);
         Mockito.when(repository.existsById(noExistingId)).thenReturn(false);
+        Mockito.when(repository.existsById(dependentId)).thenReturn(true);
 
-        Mockito.doNothing().when(repository).deleteById(existingId);
-
+    }
+    @Test
+    public void deleteShouldThrowDatabaseExceptionWhenDependentId(){
+        Assertions.assertThrows(DatabaseException.class,() -> {
+            service.delete(dependentId);
+        });
     }
 
     @Test
