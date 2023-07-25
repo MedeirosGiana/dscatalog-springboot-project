@@ -1,5 +1,6 @@
 package com.devsuperior.dscatalog.services;
 
+import com.devsuperior.dscatalog.dto.ProductDTO;
 import com.devsuperior.dscatalog.entities.Product;
 import com.devsuperior.dscatalog.repositories.ProductRepository;
 import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
@@ -14,6 +15,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -56,6 +58,15 @@ public class ProductServiceTests{
         Mockito.when(repository.existsById(noExistingId)).thenReturn(false);
         Mockito.when(repository.existsById(dependentId)).thenReturn(true);
 
+    }
+
+    @Test
+    public void findAllPageShouldReturnPage(){
+        Pageable pageable = PageRequest.of(0,10);
+        Page<ProductDTO> result = service.findAllPaged((PageRequest) pageable);
+
+        Assertions.assertNotNull(result);
+        Mockito.verify(repository).findAll(pageable);
     }
     @Test
     public void deleteShouldThrowDatabaseExceptionWhenDependentId(){
