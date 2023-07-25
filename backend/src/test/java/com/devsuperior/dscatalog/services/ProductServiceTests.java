@@ -29,18 +29,25 @@ public class ProductServiceTests{
     private ProductRepository repository;
 
     private long existingId;
-   private long noExistingId;
+    private long noExistingId;
     private long dependentId;
-    /*private PageImpl<Product> page;
-    private Product product;*/
+    private PageImpl<Product> page;
+    private Product product;
 
     @BeforeEach
     void setUp() throws Exception{
         existingId = 1L;
         noExistingId = 2L;
         dependentId = 3L;
-        //product = Factory.createProduct();
-        //page = new PageImpl<>(List.of(product));
+        product = Factory.createProduct();
+        page = new PageImpl<>(List.of(product));
+
+        Mockito.when(repository.findAll((Pageable) ArgumentMatchers.any())).thenReturn(page);
+
+        Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(product);
+
+        Mockito.when(repository.findById(existingId)).thenReturn(Optional.of(product));
+        Mockito.when(repository.findById(noExistingId)).thenReturn(Optional.empty());
 
         Mockito.doNothing().when(repository).deleteById(existingId);
         Mockito.doThrow(DataIntegrityViolationException.class).when(repository).deleteById(dependentId);
