@@ -76,7 +76,7 @@ public class ProductServiceTests{
     }
 
     @Test
-    public void deleteShouldThrowResourceNotFoundExceptionWhenNoExixistId(){
+    public void deleteShouldThrowResourceNotFoundExceptionWhenNoExistId(){
         Assertions.assertThrows(ResourceNotFoundException.class,() -> {
             service.delete(noExistingId);
         });
@@ -88,6 +88,20 @@ public class ProductServiceTests{
             service.delete(existingId);
         });
         Mockito.verify(repository).deleteById(existingId);
+    }
+
+    @Test
+    public void findByIdShouldReturnProductDTOWhenIdExists(){
+        ProductDTO productDTO = service.findById(existingId);
+
+        Assertions.assertEquals(product.getId(),productDTO.getId());
+    }
+
+    @Test
+    public void updateShouldThrowResourceNotFoundExceptionWhenNoExistsId(){
+        Assertions.assertThrows(ResourceNotFoundException.class,() -> {
+            service.findById(noExistingId);
+        });
     }
 
 }
