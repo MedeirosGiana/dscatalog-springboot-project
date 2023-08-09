@@ -112,7 +112,7 @@ public class ProductResourceTests {
     }
 
     @Test
-    public void updateShouldNotFounWhenNonExistsId() throws  Exception{
+    public void updateShouldNotFoundWhenNonExistsId() throws  Exception{
         String jsonBody = objectMapper.writeValueAsString(productDTO);
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.put(

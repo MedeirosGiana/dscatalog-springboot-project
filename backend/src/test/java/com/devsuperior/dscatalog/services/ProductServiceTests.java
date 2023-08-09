@@ -37,8 +37,8 @@ public class ProductServiceTests{
     @Mock
     private CategoryRepository categoryRepository;
 
-    private long existingId;
-    private long noExistingId;
+    private Long existingId;
+    private Long noExistingId;
     private long dependentId;
     private PageImpl<Product> page;
     private Product product;
