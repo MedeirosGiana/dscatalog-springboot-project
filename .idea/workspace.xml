@@ -6,14 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="425c30e3-af84-468e-9c8f-ddd75dd187cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devsuperior/dscatalog/resources/ProductResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devsuperior/dscatalog/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devsuperior/dscatalog/services/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devsuperior/dscatalog/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devsuperior/dscatalog/services/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
@@ -68,7 +68,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/giana/projetos-github/dscatalog&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/giana/projetos-github/video-player-api&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -81,7 +82,7 @@
       <recent name="com.devsuperior.dscatalog.services.exceptions" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DscatalogApplication">
     <configuration name="DscatalogApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.DscatalogApplication" />
       <module name="dscatalog" />
@@ -91,6 +92,68 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductResourceTests.insertShouldReturnProductDTOAndCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalog.resources.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.resources" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.resources.ProductResourceTests" />
+      <option name="METHOD_NAME" value="insertShouldReturnProductDTOAndCreated" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalog.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.services" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.services.ProductServiceIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceIT.deleteShouldDeleteResourceWhenIdExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalog.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.services" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.services.ProductServiceIT" />
+      <option name="METHOD_NAME" value="deleteShouldDeleteResourceWhenIdExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalog.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.services" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.services.ProductServiceTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,6 +172,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DscatalogApplication" />
+        <item itemvalue="JUnit.ProductServiceIT" />
+        <item itemvalue="JUnit.ProductServiceTests" />
+        <item itemvalue="JUnit.ProductServiceIT.deleteShouldDeleteResourceWhenIdExists" />
+        <item itemvalue="JUnit.ProductResourceTests.insertShouldReturnProductDTOAndCreated" />
       </list>
     </recent_temporary>
   </component>
@@ -122,6 +189,15 @@
       <updated>1688419693219</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
