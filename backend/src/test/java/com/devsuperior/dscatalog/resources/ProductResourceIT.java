@@ -28,6 +28,7 @@ public class ProductResourceIT {
     private Long existsId;
     private Long noExistsId;
     private Long countTotalProduct;
+
     @BeforeEach
     void setUp() throws Exception {
         existsId = 1L;
@@ -38,7 +39,7 @@ public class ProductResourceIT {
     @Test
     public void findAllShouldReturnSortPagedWhenSortByName() throws Exception {
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get(
-                "/products?page=0&size=12&sort=name,asc")
+                        "/products?page=0&size=12&sort=name,asc")
                 .accept(MediaType.APPLICATION_JSON));
         resultActions.andExpect(status().isOk());
         resultActions.andExpect(jsonPath("$.totalElements").value(countTotalProduct));
@@ -64,5 +65,19 @@ public class ProductResourceIT {
         resultActions.andExpect(jsonPath("$.name").value(productDTO.getName()));
         resultActions.andExpect(jsonPath("$.description").value(productDTO.getDescription()));
         resultActions.andExpect(jsonPath("$.price").value(productDTO.getPrice()));
+    }
+
+    @Test
+    public void updateShouldReturnNotFoundWhenDoesNonExistsId() throws Exception {
+        ProductDTO productDTO = Factory.createProductDTO();
+        String jsonBody = objectMapper.writeValueAsString(productDTO);
+
+        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.put(
+                        "/products/{id}", noExistsId)
+                .content(jsonBody)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON));
+
+        resultActions.andExpect(status().isNotFound());
     }
 }
