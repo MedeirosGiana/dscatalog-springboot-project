@@ -68,7 +68,9 @@ http://localhost:8080/products/1
 http://localhost:8080/products?page=0&linesPerPage=5&direction=ASC&orderBy=name
 ```
 -> Dados JSON para teste **Insert**
-![img.png](img.png)
+
+![image](https://github.com/MedeirosGiana/dscatalog-springboot-project/assets/100285143/6ee1466f-a000-4249-89ca-96cf02661c06)
+
 
 - Update Product - PUT
 ```
