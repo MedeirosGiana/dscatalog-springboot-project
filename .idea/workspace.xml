@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425c30e3-af84-468e-9c8f-ddd75dd187cb" name="Changes" comment="" />
+    <list default="true" id="425c30e3-af84-468e-9c8f-ddd75dd187cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +96,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductResourceTests.insertShouldReturnProductDTOAndCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductResourceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dscatalog" />
       <extension name="coverage">
         <pattern>
@@ -103,8 +105,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.resources" />
-      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.resources.ProductResourceTests" />
-      <option name="METHOD_NAME" value="insertShouldReturnProductDTOAndCreated" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.resources.ProductResourceIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductResourceIT.updateShouldReturnProductDTOWhenExistsId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalog.resources.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.resources" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.resources.ProductResourceIT" />
+      <option name="METHOD_NAME" value="updateShouldReturnProductDTOWhenExistsId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,22 +138,6 @@
       <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.services" />
       <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.services.ProductServiceIT" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductServiceIT.deleteShouldDeleteResourceWhenIdExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dscatalog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.devsuperior.dscatalog.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalog.services" />
-      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.services.ProductServiceIT" />
-      <option name="METHOD_NAME" value="deleteShouldDeleteResourceWhenIdExists" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,10 +171,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DscatalogApplication" />
+        <item itemvalue="JUnit.ProductResourceIT" />
+        <item itemvalue="JUnit.ProductResourceIT.updateShouldReturnProductDTOWhenExistsId" />
         <item itemvalue="JUnit.ProductServiceIT" />
         <item itemvalue="JUnit.ProductServiceTests" />
-        <item itemvalue="JUnit.ProductServiceIT.deleteShouldDeleteResourceWhenIdExists" />
-        <item itemvalue="JUnit.ProductResourceTests.insertShouldReturnProductDTOAndCreated" />
       </list>
     </recent_temporary>
   </component>
