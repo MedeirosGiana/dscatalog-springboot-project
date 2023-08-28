@@ -29,7 +29,7 @@ public class CategoryService {
     @Transactional(readOnly = true)
     public CategoryDTO findById(Long id) {
         Optional<Category> obj = repository.findById(id);
-        Category entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+        Category entity = obj.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
         return new CategoryDTO(entity);
     }
 
@@ -48,7 +48,7 @@ public class CategoryService {
             entity = repository.save(entity);
             return  new CategoryDTO(entity);
         }catch (EntityNotFoundException e){
-            throw  new ResourceNotFoundException("Id not found" + id);
+            throw  new ResourceNotFoundException("Id não encontrado" + id);
         }
 
     }
@@ -57,9 +57,9 @@ public class CategoryService {
         try {
            repository.deleteById(id);;
         }catch (EmptyResultDataAccessException e){
-            throw  new ResourceNotFoundException("id not found" + id);
+            throw  new ResourceNotFoundException("id não encontrado" + id);
         }catch (DataIntegrityViolationException e){
-            throw  new DatabaseException("Integrity violation");
+            throw  new DatabaseException("Violação de integridade.");
         }
 
     }
