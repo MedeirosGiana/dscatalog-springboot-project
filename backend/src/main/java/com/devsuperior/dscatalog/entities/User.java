@@ -19,7 +19,7 @@ public class User implements Serializable {
     private String lastName;
     private String email;
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)//para que sempre que buscar os usuários no banco, vai trazer juntos os roles
     @JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     Set<Role> roles = new HashSet<>();

@@ -1,5 +1,7 @@
 package com.devsuperior.dscatalog.dto;
 
+import com.devsuperior.dscatalog.entities.User;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -13,7 +15,7 @@ public class UserDTO implements Serializable {
     private String lastName;
     private String email;
 
-    Set<RoleDTO> roles = new HashSet<>();
+    Set<RoleDTO> roles = new HashSet<>();//para transitar no Json os dados dos usuários e suas permissões
 
     public UserDTO(){
     }
@@ -23,6 +25,13 @@ public class UserDTO implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+    public UserDTO(User entity){
+        id = entity.getId();
+        firstName = entity.getFirstName();
+        lastName = entity.getLastName();
+        email = entity.getEmail();
+        entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
     }
 
     public Long getId() {
@@ -55,5 +64,9 @@ public class UserDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<RoleDTO> getRoles() {
+        return roles;
     }
 }
