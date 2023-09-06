@@ -4,6 +4,7 @@ import com.devsuperior.dscatalog.entities.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
