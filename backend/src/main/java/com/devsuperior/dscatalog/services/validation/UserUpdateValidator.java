@@ -29,22 +29,21 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
 
     @Override
     public boolean isValid(UserUpdateDTO userUpdateDTO, ConstraintValidatorContext constraintValidatorContext) {
-
         //pega os atributos da URL
-        var uriVars= (Map<String,String>)request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+        @SuppressWarnings("unchecked")
+        var uriVars= (Map<String,String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
         long userId = Long.parseLong(uriVars.get("id"));
 
         List<FieldMessage> list = new ArrayList<>();
         //coloque aqui seus testes de validação , acrescentando objetos FieldMessage à lista
         User user = userRepository.findByEmail(userUpdateDTO.getEmail());
-
         if (user != null && userId != user.getId()){
             list.add(new FieldMessage("email","Email já existe"));
         }
 
         for (FieldMessage e : list) {//percorre a lista para inserir no beans validation os erros da lista
             constraintValidatorContext.disableDefaultConstraintViolation();
-            constraintValidatorContext.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getName()).addConstraintViolation();
+            constraintValidatorContext.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getName() ).addConstraintViolation();
         }
         return list.isEmpty();
     }
